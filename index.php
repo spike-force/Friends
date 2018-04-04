@@ -1,5 +1,24 @@
-<!DOCTYPE html>
+<?php
 
+function makelistfromDatabase()
+{
+    $conn = mysqli_connect('localhost', 'root', '', 'friends');
+    if(!$conn){
+        echo "접속오류 발생: ".mysqli_error($conn);
+    }
+    // 한글깨짐 방지를 위한 글자코드변경-mysql서버로 코드도 한글깨짐 방지를 위해 utf8
+    mysqli_query($conn, "set session character_set_connection=utf8;");
+    mysqli_query($conn, "set session character_set_results=utf8;");
+    mysqli_query($conn, "set session character_set_client=utf8;");
+
+    $sql = "SELECT * FROM name_list";
+    $result = mysqli_query($conn, $sql);
+    while ($row = mysqli_fetch_array($result)) {
+        echo "<li>{$row['name']}</li>";
+    }
+}
+?>
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -8,9 +27,7 @@
     <body>
         <h1>Friends</h1>
         <ol>
-            <li>이철우</li>
-            <li>안병현</li>
-            <li>이헌준</li>
+            <?php makelistfromDatabase(); ?>
         </ol>
         <h2>환영합니다.</h2>
         <article>
