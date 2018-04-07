@@ -1,0 +1,36 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/*
+    Created on : 2018. 4. 7, 오후 9:04:34
+    Author     : mjlee
+*/
+
+
+table
+{
+    border-collapse: collapse;
+    width: 50%;
+}
+th, td /* 바닥에만 색상을 지정한 선이 나오게함 */
+{
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+th /* 필드명 배경색 및 글자색 지정 */
+{
+    background-color: #4CAF50;
+    color: white;
+}
+tr:nth-child(even)  /* 줄무늬로 각행마다 구별을 쉽게함 */
+{
+    background-color: #f2f2f2;
+}
+tr:hover /* 마우스를 행위에 올려놓았을 경우 색이 변함 */
+{
+    background-color: #BDBDBD;
+}
+

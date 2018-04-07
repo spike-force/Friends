@@ -37,7 +37,7 @@ $form_data = array(
             'action'=>'create_process_name_list.php',
             'submit'=>'등록',
             'name' =>"",
-            'sex' =>"",
+            'sex' =>"남/여",
             'age'=>""
              );
 
@@ -77,10 +77,11 @@ if(isset($_GET['id']))
     <head>
         <meta charset="UTF-8">
         <title>Friends</title>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <h1>Topic</h1>
-        <table border="1">
+        <table>
             <tr>
                 <th>ID</th>
                 <th>이름</th>
