@@ -20,6 +20,14 @@ function fetchTable()
         echo "<td>{$row['sex']}</td>\n";
         echo "<td>{$row['age']}</td>\n";
         echo "<td><a href='name_list.php?id={$row['id']}'>편집</a></td>";
+        echo "<td>
+                  <form action='delete_name_list.php' method='POST' onsubmit=\"
+                  if(!confirm('등록리스트에서 삭제하시겠습니까?')){return false;}\">
+                    <input type='hidden' name='id' value='{$row['id']}'/>
+                    <input type='submit' value='삭제'/>
+                  </form>
+
+              </td>";
         echo "</tr>\n";
     }
 }
@@ -78,8 +86,7 @@ if(isset($_GET['id']))
                 <th>이름</th>
                 <th>성별</th>
                 <th>나이</th>
-                <th>편집</th>
-                <th>삭제</th>
+                <th colspan="2">변경</th>
             </tr>
             <?php fetchTable(); ?>
         </table>
